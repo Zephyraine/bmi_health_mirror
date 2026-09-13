@@ -1,4 +1,8 @@
 import streamlit as st
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent
+ASSETS_DIR = BASE_DIR / "assets"
 
 
 # =========================
@@ -655,7 +659,7 @@ BMI Range｜BMI 区间
 
     if status == "偏瘦":
 
-        character_path = "assets/underweight.png"
+        character_path = ASSETS_DIR / "underweight.png"
 
         feedback_title = "今天也要好好吃饭！"
 
@@ -670,7 +674,7 @@ BMI Range｜BMI 区间
 
     elif status == "正常":
 
-        character_path = "assets/normal.png"
+        character_path = ASSETS_DIR / "normal.png"
 
         feedback_title = "状态不错，继续保持！"
 
@@ -685,7 +689,7 @@ BMI Range｜BMI 区间
 
     elif status == "超重":
 
-        character_path = "assets/overweight.png"
+        character_path = ASSETS_DIR / "overweight.png"
 
         feedback_title = "动起来，但不用着急！"
 
@@ -700,7 +704,7 @@ BMI Range｜BMI 区间
 
     else:
 
-        character_path = "assets/obesity.png"
+        character_path = ASSETS_DIR / "obesity.png"
 
         feedback_title = "多关注一步，更安心一点！"
 
@@ -730,9 +734,9 @@ BMI Range｜BMI 区间
     with character_col:
 
         st.image(
-            character_path,
-            use_container_width=True
-        )
+    str(character_path),
+    use_container_width=True
+)
 
 
     with advice_col:
