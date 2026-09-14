@@ -1,4 +1,4 @@
-import streamlit as st
+import streamlit as st  
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent
@@ -327,6 +327,221 @@ div[data-baseweb="input"] {
     border-radius: 20px;
 
     overflow: hidden;
+}
+
+
+/* =========================
+   Responsive layout helpers
+========================= */
+
+.result-card {
+    margin-top: 2.5rem;
+    padding: 2.2rem 2.4rem;
+    background: rgba(255, 255, 255, 0.70);
+    border: 1px solid rgba(173, 177, 220, 0.28);
+    border-radius: 28px;
+    box-shadow: 0 18px 50px rgba(112, 113, 155, 0.08);
+}
+
+.result-value {
+    font-size: clamp(3.4rem, 10vw, 4.8rem);
+}
+
+.range-card {
+    margin-top: 1.3rem;
+    padding: 1.7rem 2rem;
+    background: rgba(255, 255, 255, 0.70);
+    border: 1px solid rgba(173, 177, 220, 0.28);
+    border-radius: 28px;
+    box-shadow: 0 18px 50px rgba(112, 113, 155, 0.06);
+}
+
+.range-labels {
+    display: grid;
+    grid-template-columns: 21.4% 26.2% 19% 33.4%;
+    margin-top: 0.8rem;
+    color: #8f8a9f;
+    font-size: 0.77rem;
+    text-align: center;
+}
+
+.feedback-card {
+    padding: 2rem;
+    border: 1px solid rgba(177, 181, 220, 0.24);
+    border-radius: 26px;
+    box-shadow: 0 12px 34px rgba(107, 108, 150, 0.05);
+}
+
+.feedback-spacer {
+    height: 35px;
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.2rem;
+    width: 100%;
+}
+
+.metric-card {
+    min-width: 0;
+    min-height: 205px;
+    padding: 1.7rem;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.78);
+    border: 1px solid rgba(177, 181, 220, 0.28);
+    border-radius: 24px;
+    box-shadow: 0 10px 28px rgba(107, 108, 150, 0.05);
+}
+
+.metric-value {
+    overflow-wrap: anywhere;
+}
+
+@media (max-width: 768px) {
+    .block-container {
+        width: 100%;
+        padding: 1rem 1rem 2.5rem;
+    }
+
+    .hero {
+        padding: 1.7rem 1.25rem;
+        margin-bottom: 1rem;
+        border-radius: 20px;
+    }
+
+    .hero::before,
+    .st-key-health_input_card::before {
+        width: 170px;
+        height: 170px;
+        right: -65px;
+        top: -65px;
+    }
+
+    .hero-tag {
+        margin-bottom: 0.75rem;
+        font-size: 0.68rem;
+        letter-spacing: 0.09em;
+    }
+
+    .hero-title {
+        font-size: clamp(2rem, 12vw, 3.1rem);
+        line-height: 1.05;
+        overflow-wrap: anywhere;
+    }
+
+    .hero-cn {
+        margin-top: 1rem;
+        font-size: 1.2rem;
+    }
+
+    .hero-desc {
+        font-size: 0.94rem;
+        line-height: 1.65;
+    }
+
+    .st-key-health_input_card {
+        padding: 1.4rem 1.15rem !important;
+        border-radius: 20px !important;
+    }
+
+    /* Streamlit columns are kept side-by-side by default on some versions. */
+    [data-testid="stHorizontalBlock"] {
+        flex-direction: column;
+        gap: 0.35rem !important;
+    }
+
+    [data-testid="stHorizontalBlock"] > [data-testid="stColumn"] {
+        width: 100% !important;
+        flex: 1 1 100% !important;
+        min-width: 0 !important;
+    }
+
+    /* 16px prevents iOS browsers from zooming when a field receives focus. */
+    input,
+    button,
+    textarea,
+    select {
+        font-size: 16px !important;
+    }
+
+    .stButton > button {
+        min-height: 48px;
+        margin-top: 0.55rem;
+        border-radius: 15px;
+    }
+
+    .result-card,
+    .range-card {
+        margin-top: 1rem;
+        padding: 1.35rem 1.15rem;
+        border-radius: 20px;
+    }
+
+    .range-card {
+        overflow-x: hidden;
+    }
+
+    .range-labels {
+        font-size: 0.64rem;
+        line-height: 1.25;
+    }
+
+    .range-labels span {
+        font-size: 0.61rem !important;
+    }
+
+    .feedback-spacer {
+        display: none;
+    }
+
+    .feedback-card {
+        padding: 1.35rem 1.15rem;
+        border-radius: 20px;
+    }
+
+    .cards-grid {
+        grid-template-columns: 1fr;
+        gap: 0.85rem;
+    }
+
+    .metric-card {
+        min-height: 165px;
+        padding: 1.35rem 1.2rem;
+        border-radius: 20px;
+    }
+
+    [data-testid="stImage"] img {
+        display: block;
+        max-height: 360px;
+        object-fit: contain;
+    }
+
+    [data-testid="stExpander"] {
+        border-radius: 16px;
+    }
+}
+
+@media (max-width: 390px) {
+    .block-container {
+        padding-right: 0.75rem;
+        padding-left: 0.75rem;
+    }
+
+    .hero,
+    .st-key-health_input_card {
+        border-radius: 18px !important;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .range-labels {
+        font-size: 0.58rem;
+    }
 }
 
 </style>
@@ -704,7 +919,7 @@ BMI Range｜BMI 区间
 
     else:
 
-        character_path = ASSETS_DIR / "obesity.png"
+        character_path = "assets/obesity.png"
 
         feedback_title = "多关注一步，更安心一点！"
 
@@ -734,9 +949,9 @@ BMI Range｜BMI 区间
     with character_col:
 
         st.image(
-    str(character_path),
-    use_container_width=True
-)
+            character_path,
+            use_container_width=True
+        )
 
 
     with advice_col:
